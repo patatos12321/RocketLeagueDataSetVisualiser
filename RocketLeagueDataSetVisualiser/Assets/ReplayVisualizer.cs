@@ -24,20 +24,20 @@ public class ReplayVisualizer : MonoBehaviour {
         Frame frame = frames[frameNumber];
 
         //I have ot switch the Y and the X
-        Vector3 positionPlayer1 = new Vector3(frame.PlayerY, frame.PlayerX, 0);
+        Vector3 positionPlayer1 = new Vector3(frame.PlayerY, frame.PlayerX, -frame.PlayerZ);
         Player1.transform.position = positionPlayer1;
 
         Quaternion rotationPlayer1 = new Quaternion(0, 0, frame.PlayerRotationZ - 1f, 1);
         //Quaternion rotationPlayer1 = new Quaternion(frame.PlayerRotationX, frame.PlayerRotationY, frame.EnemyPlayerRotationZ, 1);
         Player1.transform.rotation = rotationPlayer1;
 
-        Vector3 positionPlayer2 = new Vector3(frame.EnemyPlayerY, frame.EnemyPlayerX, 0);
+        Vector3 positionPlayer2 = new Vector3(frame.EnemyPlayerY, frame.EnemyPlayerX, -frame.EnemyPlayerZ);
         Player2.transform.position = positionPlayer2;
         
         Quaternion rotationPlayer2 = new Quaternion(0, 0, frame.EnemyPlayerRotationZ -1f, 1);
         Player2.transform.rotation = rotationPlayer2;
 
-        Vector3 positionBall = new Vector3(frame.BallY, frame.BallX, 0);
+        Vector3 positionBall = new Vector3(frame.BallY, frame.BallX, -frame.BallZ);
         Ball.transform.position = positionBall;
         
         if (frameNumber < frames.Count)
